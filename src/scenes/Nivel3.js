@@ -93,7 +93,7 @@ export default class Nivel3 extends Phaser.Scene {
       this.jugador,
       this.salida,
       this.esVencedor,
-      () => this.cantidadEstrellas >= 15, // condicion de ejecucion
+      () => this.cantidadEstrellas >= 20, // condicion de ejecucion
       this
     );
 
@@ -106,12 +106,25 @@ export default class Nivel3 extends Phaser.Scene {
     );
 
     this.nivelTexto = this.add.text(
-      300,
+      320,
       15,
-      "Nivel 3    -    Objetivo: 15 estrellas", {
+      "Nivel 3    -    Objetivo: 20 estrellas", {
         fontSize: "15px", fill: "#FFFFFF"
       }
     )
+
+    this.cameras.main.startFollow(this.jugador);
+
+    this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+    this.cantidadEstrellasTexto.setScrollFactor(0);
+
+    this.nivelTexto.setScrollFactor(0);
+
+
+
   }
 
   update() {
@@ -119,12 +132,12 @@ export default class Nivel3 extends Phaser.Scene {
     // check input
     //move left
     if (this.cursors.left.isDown) {
-      this.jugador.setVelocityX(-160);
+      this.jugador.setVelocityX(-200);
       this.jugador.anims.play("left", true);
     }
     //move right
     else if (this.cursors.right.isDown) {
-      this.jugador.setVelocityX(160);
+      this.jugador.setVelocityX(200);
       this.jugador.anims.play("right", true);
     }
     //stop
