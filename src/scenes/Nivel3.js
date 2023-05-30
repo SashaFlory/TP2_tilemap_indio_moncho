@@ -113,18 +113,18 @@ export default class Nivel3 extends Phaser.Scene {
       }
     )
 
+    //add camera to follow player
     this.cameras.main.startFollow(this.jugador);
 
+    // world bounds
     this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
+    //camera dont go out of the map
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
+    //fijar texto para que no se mueva con la cámara
     this.cantidadEstrellasTexto.setScrollFactor(0);
-
     this.nivelTexto.setScrollFactor(0);
-
-
-
   }
 
   update() {

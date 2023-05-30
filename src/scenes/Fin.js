@@ -17,9 +17,16 @@ export default class Fin extends Phaser.Scene {
   }
 
   create() {
+    this.juegoGanadoTexto = this.add.text(
+      200,
+      150,
+      "¡HAS GANADO!", {
+        fontSize: "50px", fill: "#FFBE33"
+      }
+    )
     this.cantidadEstrellasTexto = this.add.text(
-      100,
-      100,
+      120,
+      350,
       "Estrellas totales: " + this.cantidadEstrellas,
       { fontSize: "30px", fill: "#FFFFFF" }
     );
